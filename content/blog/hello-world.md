@@ -1,9 +1,7 @@
-   ---
-   title: "Hello World"
-   date: 2026-09-8
-   ---
-
-   Your post content goes here, in plain text with **bold**,
-   *italics*, and [links](https://example.com) if you want them.
-
-   ![Description of the photo](/img/hello-world.jpg)
+---
+title: Hello World.
+description: This is a post on My Blog about agile frameworks.
+date: 2026-09-08
+tags: another tag
+---
+![Hello World](/img/hello-world.jpg)
