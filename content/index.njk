@@ -1,29 +1,16 @@
----js
-const eleventyNavigation = {
-	key: "Home",
-	order: 1
-};
-
-const numberOfLatestPostsToShow = 3;
 ---
-{% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
-
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
-
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
-{% endif %}
-
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
-	{%- endfor %}
-</ul>
-#}
+layout: base.njk
+title: Home
+permalink: /
+---
+<div class="post-list">
+  {% for post in collections.posts %}
+  <article class="post-entry">
+    <time class="post-entry__date" datetime="{{ post.date | isoDate }}">{{ post.date | postDate }}</time>
+    <h2 class="post-entry__title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+    {% if post.data.subtitle %}
+    <p class="post-entry__subtitle">{{ post.data.subtitle }}</p>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>

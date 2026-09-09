@@ -1,0 +1,60 @@
+<aside class="sidebar">
+
+  <div class="widget widget--profile">
+    <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}" class="avatar">
+    <ul class="social-links">
+      {% for link in site.social %}
+      <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="widget">
+    <h2 class="widget__title">Pages</h2>
+    <ul class="widget__list">
+      {% for item in site.nav %}
+      <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="widget">
+    <h2 class="widget__title">Categories</h2>
+    <ul class="widget__list">
+      {% for name, catPosts in collections.categories %}
+      <li>
+        <a href="/categories/#{{ name | slugify }}">{{ name }}</a>
+        <span class="count">({{ catPosts.length }})</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="widget">
+    <h2 class="widget__title">Recent Posts</h2>
+    <ul class="widget__list">
+      {% for post in collections.recent %}
+      <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="widget">
+    <h2 class="widget__title">Archives</h2>
+    <ul class="widget__list">
+      {% for month, monthPosts in collections.archive %}
+      <li><a href="/archive/#{{ month | slugify }}">{{ month }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="widget">
+    <h2 class="widget__title">Blogroll</h2>
+    <ul class="widget__list">
+      {% for link in site.blogroll %}
+      <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</aside>

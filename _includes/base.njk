@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ subtitle or site.tagline }}">
+  <link rel="alternate" type="application/atom+xml" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  {% include "partials/header.njk" %}
+
+  <div class="wrap">
+    <main class="main">
+      {{ content | safe }}
+    </main>
+    {% include "partials/sidebar.njk" %}
+  </div>
+
+  {% include "partials/footer.njk" %}
+</body>
+</html>

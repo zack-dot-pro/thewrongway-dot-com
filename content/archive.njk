@@ -1,0 +1,15 @@
+---
+layout: page.njk
+title: Archive
+permalink: /archive/
+---
+{% for month, monthPosts in collections.archive %}
+<section id="{{ month | slugify }}" class="archive-group">
+  <h2 class="archive-group__title">{{ month }}</h2>
+  <ul class="widget__list">
+    {% for post in monthPosts %}
+    <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

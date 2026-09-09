@@ -1,9 +1,9 @@
----js
-const eleventyNavigation = {
-	key: "About",
-	order: 3
-};
 ---
-# About
+layout: page.njk
+title: About
+permalink: /about/
+---
+Replace this with your actual About page content.
 
-I am a person that writes stuff.
+A line or two about who you are, why this blog exists, and what
+"the wrong way" means to you is usually enough.

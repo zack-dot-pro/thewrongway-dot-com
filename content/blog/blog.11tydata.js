@@ -1,6 +1,5 @@
-export default {
-	tags: [
-		"posts"
-	],
-	"layout": "layouts/post.njk",
+module.exports = {
+  eleventyComputed: {
+    permalink: (data) => `/blog/${data.page.fileSlug}/`,
+  },
 };

@@ -1,0 +1,11 @@
+---
+layout: base.njk
+---
+<article class="post">
+  <time class="post__date" datetime="{{ date | isoDate }}">{{ date | postDate }}</time>
+  <h1 class="post__title">{{ title }}</h1>
+  {% if subtitle %}<p class="post__subtitle">{{ subtitle }}</p>{% endif %}
+  <div class="post__body">
+    {{ content | safe }}
+  </div>
+</article>
